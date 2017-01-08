@@ -1,0 +1,29 @@
+{
+  "name": "initializable",
+  "description": "Allows to describe and perform initialization process for any JavaScript class.",
+  "main": "build/initializable.js",
+  "authors": [
+    "Yaroslav Konoplov <eahome00@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "publisher-subscriber",
+    "events",
+    "callbacks"
+  ],
+  "homepage": "https://github.com/yivo/callbacks",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "spec",
+    "coffeespec",
+    "gulpfile.*"
+  ]
+}
