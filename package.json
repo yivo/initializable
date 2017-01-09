@@ -1,6 +1,6 @@
 {
   "name": "initializable",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Allows to describe and perform initialization process for any JavaScript class.",
   "main": "build/initializable.js",
   "devDependencies": {

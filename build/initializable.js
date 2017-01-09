@@ -14,29 +14,34 @@
     }
   })(function(__root__, Object) {
     return {
-      VERSION: '0.0.1',
+      VERSION: '1.0.0',
       InstanceMembers: {
+        initialized: false,
+        initializing: false,
         __initializers__: [],
         initialize: function() {
-          var fn, j, len, ref;
-          ref = this.__initializers__;
-          for (j = 0, len = ref.length; j < len; j++) {
-            fn = ref[j];
-            (typeof fn === 'string' ? this[fn] : fn).apply(this, arguments);
+          var fn, i, len, ref;
+          if (!this.initialized && !this.initializing) {
+            this.initializing = true;
+            ref = this.__initializers__;
+            for (i = 0, len = ref.length; i < len; i++) {
+              fn = ref[i];
+              (typeof fn === 'string' ? this[fn] : fn).apply(this, arguments);
+            }
+            this.initializing = false;
+            this.initialized = true;
           }
           return this;
         }
       },
       ClassMembers: {
         initializer: function() {
-          var a, i, l;
-          a = [];
-          i = -1;
-          l = arguments.length;
-          while (++i < l) {
-            a.push(arguments[i]);
+          var fn, i, len;
+          this.prototype.__initializers__ = this.prototype.__initializers__.slice();
+          for (i = 0, len = arguments.length; i < len; i++) {
+            fn = arguments[i];
+            this.prototype.__initializers__.push(fn);
           }
-          this.prototype.__initializers__ = this.prototype.__initializers__.concat(a);
           if (typeof Object.freeze === "function") {
             Object.freeze(this.prototype.__initializers__);
           }
