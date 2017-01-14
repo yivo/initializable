@@ -1,20 +1,25 @@
+
+/*!
+ * initializable 1.0.1 | https://github.com/yivo/initializable | MIT License
+ */
+
 (function() {
   (function(factory) {
-    var root;
-    root = typeof self === 'object' && self !== null && self.self === self ? self : typeof global === 'object' && global !== null && global.global === global ? global : void 0;
+    var __root__;
+    __root__ = typeof self === 'object' && self !== null && self.self === self ? self : typeof global === 'object' && global !== null && global.global === global ? global : Function('return this')();
     if (typeof define === 'function' && typeof define.amd === 'object' && define.amd !== null) {
-      root.Initializable = factory(root, Object);
+      __root__.Initializable = factory(__root__, Object);
       define(function() {
-        return root.Initializable;
+        return __root__.Initializable;
       });
     } else if (typeof module === 'object' && module !== null && typeof module.exports === 'object' && module.exports !== null) {
-      module.exports = factory(root, Object);
+      module.exports = factory(__root__, Object);
     } else {
-      root.Initializable = factory(root, Object);
+      __root__.Initializable = factory(__root__, Object);
     }
   })(function(__root__, Object) {
     return {
-      VERSION: '1.0.0',
+      VERSION: '1.0.1',
       InstanceMembers: {
         initialized: false,
         initializing: false,
